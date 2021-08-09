@@ -11,7 +11,6 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
-            Spacer()
             
             Image("splash_image")
                 .resizable()
@@ -22,8 +21,9 @@ struct ContentView: View {
             Text("from")
             
             Text("Prajata Samanta")
+                .font(.title3)
                 .bold()
-                .frame(width: nil, height: 30.0)
+                .frame(height: 30.0)
         }
     }
 }
