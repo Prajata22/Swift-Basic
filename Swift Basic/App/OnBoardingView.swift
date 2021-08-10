@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnBoardingView: View {
     
-    var fruits: [Fruit] = fruitsData
+    var fruits: [Fruit]
     
     var body: some View {
         TabView {
@@ -24,6 +24,6 @@ struct OnBoardingView: View {
 
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardingView()
+        OnBoardingView(fruits: fruitsData)
     }
 }
