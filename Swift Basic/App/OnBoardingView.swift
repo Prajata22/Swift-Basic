@@ -9,10 +9,12 @@ import SwiftUI
 
 struct OnBoardingView: View {
     
+    var fruits: [Fruit] = fruitsData
+    
     var body: some View {
         TabView {
-            ForEach(0..<5) { item in
-                FruitCardView()
+            ForEach(fruits[0...5]) { item in
+                FruitCardView(fruit: item)
             }
         }
         .tabViewStyle(PageTabViewStyle())
