@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    @AppStorage("isOnboarding") var isOnboarding: Bool = false
+    
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -36,8 +38,49 @@ struct SettingsView: View {
                                     Text("Most fruits are naturally low in fat, sodium and calories. None have cholestrol. Fruits are sources of many essential nutrients, including potassium, dietary fiber, vitamins, and much more.")
                                         .font(.footnote)
                                         .padding(.horizontal, 5)
+                                }
+                            )
+                        }
+                    )
+                    
+                    GroupBox(
+                        label: SettingsLabelView(
+                            labelText: "Customization",
+                            labelImage: "paintbrush"
+                        ),
+                        content: {
+                            Divider().padding(.vertical, 4)
+
+                            Text("If you wish, you can restart the application by toggle the switch in this box. That way it starts the onboarding process and you will see the welcome screen again.")
+                                .padding(.vertical, 8)
+                                .frame(minHeight: 60)
+                                .layoutPriority(1)
+                                .font(.footnote)
+                                .multilineTextAlignment(.leading)
+                            
+                            Toggle(isOn: $isOnboarding, label: {
+                                if (isOnboarding) {
+                                    Text("Restarted".uppercased())
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color.green)
+                                } else {
+                                    Text("Restart".uppercased())
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color.secondary)
+                                }
                             })
-                    })
+                            .padding()
+                            .background(
+                                Color(UIColor.tertiarySystemBackground)
+                                    .clipShape(
+                                        RoundedRectangle(
+                                            cornerRadius: 8,
+                                            style: .continuous
+                                        )
+                                    )
+                            )
+                        }
+                    )
                     
                     GroupBox(
                         label: SettingsLabelView(
@@ -57,7 +100,7 @@ struct SettingsView: View {
                             
                             SettingsRowView(
                                 name: "Github",
-                                linkLabel: "Profile",
+                                linkLabel: "Prajata22",
                                 linkDestination: "https://github.com/Prajata22"
                             )
                             
@@ -76,7 +119,8 @@ struct SettingsView: View {
                                 name: "Version",
                                 content: "1.0.0"
                             )
-                    })
+                        }
+                    )
                 }
                 .navigationBarTitle(
                     Text("Settings"),
