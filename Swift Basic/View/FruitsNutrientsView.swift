@@ -15,7 +15,7 @@ struct FruitsNutrientsView: View {
                                "Vitamins", "Minerals"]
     
     var body: some View {
-        GroupBox() {
+        GroupBox {
             DisclosureGroup("Nutritional value per 100 g") {
                 ForEach(0 ..< nutrients.count, id: \.self) { item in
                     Divider().padding(.vertical, 2)

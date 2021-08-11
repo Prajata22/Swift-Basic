@@ -35,6 +35,7 @@ struct SettingsView: View {
                                     
                                     Text("Most fruits are naturally low in fat, sodium and calories. None have cholestrol. Fruits are sources of many essential nutrients, including potassium, dietary fiber, vitamins, and much more.")
                                         .font(.footnote)
+                                        .padding(.horizontal, 5)
                             })
                     })
                     
